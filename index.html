@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties Example</title>
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        function testASMX() {
+
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+            $.ajax({
+                type: "POST",
+                //url: "../services/commonservices.asmx/testIcenium",
+                url: "http://80.82.215.120/appframe/services/commonservices.asmx/testIcenium",
+                //url: "http://localhost/appframe/services/commonservices.asmx/testIcenium",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: "{\"d\": false}",
+                //data: varmyData,
+                //processData: false,
+                dataType: "json",
+                success: successFunction,
+                error: ajaxFailed
+            });
+        };
+        function successFunction(data, status) {
+            //alert(data.d);
+            //$.("#Ausgabe").innerHTML
+            var label = document.getElementById("Ausgabe");
+            label.innerHTML = i.toString() + " " + data.d;
+            i = i + 1;
+        }
+        function ajaxFailed(xmlRequest) {
+            var label = document.getElementById("Ausgabe");
+            label.innerHTML = "Error";
+        }
+    </script>
+  </head>
+  <body>
+    <p id="version">Version 1</p>
+
+    <input id="Button1" type="button" value="Test ASMX" onclick="testASMX();" /> <br />
+    <input id="Button2" type="button" value="Test AuthStatus" onclick="testAuthStatus();" />
+
+    <div id="Ausgabe">
+        
+    </div>
+  </body>
+</html>
+    
