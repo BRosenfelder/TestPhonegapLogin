@@ -21,7 +21,7 @@
     <preference name="fullscreen"       value="false" />
     <preference name="exit-on-suspend"  value="false" />
 
-    <access origin="http://80.82.215.120" subdomains="true" />
+    <access origin="http://93.186.200.244" subdomains="true" />
 
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
